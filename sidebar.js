@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 <h1>Cleiton Ferreira</h1>
                 <div class="title">
                     <p>
-                        Arquiteto e Engenheiro de sistemas | Reconhecida experiência em liderança de projetos com REST APIs
+                        Engenheiro de Software | Mestrando em Engenharia de Software | Java
                     </p>
                 </div>
                 <div class="at">
