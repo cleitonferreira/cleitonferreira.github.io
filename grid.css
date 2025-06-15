@@ -1,0 +1,90 @@
+.grid {
+    display: grid;
+    grid-gap: 24px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    width: 100%;
+}
+
+.gridItem {
+    margin: 0;
+    transition: var(--transition);
+}
+
+.gridContent {
+    height: 100%;
+}
+
+.previewArticle {
+    background: var(--bg-color);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+
+.previewArticle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+}
+
+.previewArticle a {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.previewArticle .previewImage {
+    transition: all 0.3s ease;
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.previewArticle .previewHeader {
+    padding: 16px;
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.previewArticle .previewHeader h2 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--text-color);
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.previewArticle .previewHeader h3 {
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--light-text);
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.previewArticle .previewDate {
+    font-size: 13px;
+    color: var(--light-text);
+    display: flex;
+    align-items: center;
+}
+
+.previewArticle .previewDate i {
+    margin-right: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .previewArticle .previewImage {
+        height: 200px;
+    }
+}

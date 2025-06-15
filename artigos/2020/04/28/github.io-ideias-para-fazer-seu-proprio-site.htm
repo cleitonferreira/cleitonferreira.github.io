@@ -1,0 +1,111 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-163804196-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163804196-1');
+    </script>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/7a312fc647.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="../../../../base.css">
+    <link rel="stylesheet" type="text/css" href="../../../../article.css">
+    <link rel="stylesheet" type="text/css" href="../../../../menu.js">
+</head>
+<body>
+    <div class="menu" id="mymenu">
+        <div class="profileCard">
+            <img src="../../../../selfie.jpg" alt="Cleiton" class="photo">
+            <h1>Cleiton Ferreira</h1>
+            <div class="title">
+                <p>
+                    Arquiteto&<br>
+                    Engenheiro de Sistemas&<br>
+                    Programador&<br>
+                    .NET
+                </p>
+            </div>
+            <div class="at">
+                <p>@ Banco Safra</p>
+            </div>
+            <div class="social">
+                <a href="https://www.linkedin.com/in/cleitonferreiraa/" target="_blank"><span><i class="fab fa-linkedin"></i></span></a>
+                <a href="https://github.com/cleitonferreira" target="_blank"><span><i class="fab fa-github"></i></span></a>
+            </div>
+        </div>
+        <div class="links">
+            <div class="home">
+                <a href="../../../../index.htm" class="active">Home</a>
+            </div>
+            <div class="hashTags"><a href='../../../../index.htm#.net' onclick="filterHashTag('.net')">#.net</a>
+<a href='../../../../index.htm#rest' onclick="filterHashTag('rest')">#rest</a>
+<a href='../../../../index.htm#web' onclick="filterHashTag('web')">#web</a></div>
+        </div>
+    </div>
+    <div class="content">
+<div class="imageHeader" style="background-image: url('header.jpg')"></div><h1 id="github.io-ideias-para-fazer-seu-proprio-site"><a id="github.io:-ideias-para-fazer-seu-pr&#243;prio-site"></a>GitHub.io: ideias para fazer seu próprio site</h1>
+<p>Não sei se você sabe, mas o GitHub.com tem um recurso chamado <a href="https://pages.github.com/">GitHub Pages</a>. Ele permite que você disponibilize conteúdos estáticos de página da web (html, css, javascript, imagens etc) de forma gratuita armazendo tudo no seu repositório público.</p>
+<p>Com uma conta criada no GitHub, a URL do seu site no GitHub Pages fica assim: <a href="https://cleitonferreira.github.io/">https://cleitonferreira.github.io/</a></p>
+<p>Para publicar, basta criar e colocar todo o conteúdo em um repositório público, por exemplo, o meu: <a href="https://github.com/cleitonferreira/cleitonferreira.github.io">https://github.com/cleitonferreira/cleitonferreira.github.io</a>.</p>
+<p>Como são apenas conteúdos estáticos não rodam código servidor (.net, Java etc.) para gerar as páginas dinamicamente. Apesar disso, pensei: eu poderia organizar e distribuir meus conteúdos em um ambiente mais personalizado do que apenas compartilhá-los via respositórios públicos como eu vinha fazendo até então! Na hora me vieram dois problemas: não posso fazer em ASP.net - que eu já conhecia bem - e faz uns 7 anos que não mexia em nada web. Um probleminha por vez fui solucionando e compartilho alguns insights.</p>
+<h2 id="markdown"><a id="markdown"></a>Markdown</h2>
+<p>Markdown é uma notação de texto que permite itens básicos de formatação e pra mim acho rápido de escrever com ela. Me atende em 90% dos cenários e quando não, faço algum contorno com HTML. Conteúdos em Markdown são convertidos para HTML ao serem exibidos na tela, por exemplo, como nos README.md do GitHub.</p>
+<p>Faz tempo que já escrevo todos os meus conteúdos em Markdown e armazeno em algum dos meus repositórios do GitHub.</p>
+<p>O primeiro editor que tive contato e meu preferido ainda é o <a href="https://stackedit.io/app">stackedit.io</a>.</p>
+<h2 id="geracao-dos-htmls-a-partir-dos-markdowns-com.net-core"><a id="gera&#231;&#227;o-dos-htmls-&#224;-partir-dos-markdowns-com-.net-core"></a>Geração dos HTMLs à partir dos Markdowns com .NET Core</h2>
+<p>Você vai precisar de alguma ferramenta que gere o conteúdo estático à partir de algum lugar. A primeira ideia foi usar o <a href="https://jekyllrb.com">Jekyll</a>.</p>
+<p>O Jekyll lê conteúdos em Markdown e gera em HTML em algum dos vários templates que existem para esta plataforma. Como eu gosto muito mais de fazer do que usar as coisas, optei por gastar o tempo me atualizando com web ao invés de aprender Jekyll. Assim, fiz o meu próprio template pro site e um gerador de HTML pra ele.</p>
+<p>O gerador encontra-se no repositório <a href="https://github.com/cleitonferreira/GeradorGithub">https://github.com/cleitonferreira/GeradorGithub</a> e o fiz sem pretenções de reuso ou extensão. O código ficou todo em uma função só na Main e funciona assim:</p>
+<ul>
+<li>coloco no começo de cada markdown comentários chave/valor como data-criacao, resumo, hashtags e imagem para metadados importantes na hora de eu gerar o HTML;</li>
+<li>clono na máquina o repositório com os templates HTML;</li>
+<li>clono na máquina todos os repositórios com os conteúdos em Markdown;</li>
+</ul>
+<p>Executo o GeradorGitHub direto no Visual Studio mesmo e ele:</p>
+<ul>
+<li>lê templates HTML do site, cujo caminho defino em variáveis na aplicação;</li>
+<li>lê os arquivos .md, cujo caminho eu defino em um array;</li>
+<li>percorre cada um dos markdowns armazenando os metadados e conteúdo;</li>
+<li>para cada um deles, converte o markdown em HTML usando a biblioteca <a href="https://github.com/lunet-io/markdig">Markdig</a>;</li>
+<li>faz replaces e injeções de tags nos templates HTML com o apoio da biblioteca <a href="https://html-agility-pack.net">HtmlAgilityPack</a>;</li>
+<li>copia as imagens (ilustração no header) + arquivo HTML gerado pelo Markdig em diretórios no repositório local do GitHub Pages;</li>
+<li>copia o index, já com referências para todos os artigos, no repositório local do GitHub Pages;</li>
+</ul>
+<p>Reviso o conteúdo gerado e faço push no repositório do GitHub Pages.</p>
+<h2 id="o-template-html"><a id="o-template-html"></a>O Template HTML</h2>
+<p>Quando pensei em montar o site, vislumbrei algo como o Pinterest. Comecei a pesquisar e descobri que o nome da forma como os cards no Pinterest são dispostos, se chama Masonry.</p>
+<p>Pesquisando por como fazer Masonry, me inspirei neste template:</p>
+<p><a href="https://wordpress.org/themes/koji/">https://wordpress.org/themes/koji/</a></p>
+<p><img src="https://raw.githubusercontent.com/cleitonferreira/artigos/master/meugithubio/koji.jpg" alt="template koji"></p>
+<p>Para entender o Masonry, estudei estes dois tutoriais:</p>
+<p><a href="https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb">https://medium.com/@andybarefoot/a-masonry-style-layout-using-css-grid-8c663d355ebb</a></p>
+<p><a href="https://w3bits.com/css-grid-masonry/">https://w3bits.com/css-grid-masonry/</a></p>
+<p>No meio de algumas novidades, esbarrei neste tutorial  passei a virar fâ do css-tricks:</p>
+<p><a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a></p>
+<p>Fiz o card da esquerda (com informações pessoais) inspirado neste tutorial da W3Schools:</p>
+<p><a href="https://www.w3schools.com/howto/howto_css_profile_card.asp">https://www.w3schools.com/howto/howto_css_profile_card.asp</a></p>
+<p>E entendi como funciona o design responsivo neste conteúdo aqui:</p>
+<p><a href="https://www.w3schools.com/howto/howto_js_topnav_responsive.asp">https://www.w3schools.com/howto/howto_js_topnav_responsive.asp</a></p>
+<p>A W3Schools era uma das minhas fontes de consulta na época que eu trabalhava com web. Pra mim era apenas para referências, no entanto, descobri uma coleção de práticas atuais de web que ajudam muito na hora de montar o seu site:</p>
+<p><a href="https://www.w3schools.com/howto/">https://www.w3schools.com/howto/</a></p>
+<p>Por conta de um detalhe (ícone) no card de informações pessoais, conheci o Font Awesome que entrega uma vasta biblioteca de ícones vertoriais para usar no site:</p>
+<p><a href="https://fontawesome.com/">https://fontawesome.com/</a></p>
+<p>E é importante sempre ter métricas, por isso, acrescentei o Google Analytics no site:</p>
+<p><a href="https://analytics.google.com/">https://analytics.google.com/</a></p>
+<h2 id="proximos-passos"><a id="pr&#243;ximos-passos"></a>Próximos passos</h2>
+<h3 id="comentarios"><a id="coment&#225;rios"></a>Comentários</h3>
+<p>Tenho vontade de acrescentar uma área de comentários nos artigos. Ainda não investi tempo nisso, mas já esbarrei em algo que me parece promissor.</p>
+<p>O Gitment e Gitalk, via Javascript, implementa comentários usando uma página de Issues do GitHub para armezanar as conversas:</p>
+<p><a href="https://github.com/imsun/gitment">https://github.com/imsun/gitment</a></p>
+<p><a href="https://github.com/gitalk/gitalk">https://github.com/gitalk/gitalk</a></p>
+<p>Vi que tem a limitação de só permitir usuário logado do GitHub.</p>
+<p>Enfim, é isso! Registrei minha trajetória nesta tarefa de fazer o meu GitHub Pages e espero que algumas informações aqui possam ser úteis pra você.</p>
+
+</div>
+</body>
+</html>

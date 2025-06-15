@@ -1,0 +1,251 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    word-break: break-word;
+}
+
+:root {
+    --primary-color: #0077B6;
+    --secondary-color: #023E8A;
+    --text-color: #333333;
+    --light-text: #666666;
+    --bg-color: #FFFFFF;
+    --light-bg: #F8F9FA;
+    --border-color: #E9ECEF;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+/* MENU -------------------------------- */
+.menu {
+    overflow: auto;
+    width: 300px;
+    position: fixed;
+    height: 100%;
+    background-color: var(--bg-color);
+    border-right: 1px solid var(--border-color);
+    padding: 20px 0;
+}
+
+.menu .icon {
+    display: none;
+}
+
+.menu .links {
+    padding: 20px;
+    font-size: 16px;
+}
+
+.menu .links a {
+    display: block;
+    padding: 8px 0;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.menu .links a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.menu .links a:hover:not(.active) {
+    color: var(--primary-color);
+}
+
+.welcome-message {
+    margin: 20px 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--light-text);
+    text-align: center;
+}
+
+.welcome-message p {
+    margin-bottom: 12px;
+}
+
+.welcome-message p:last-child {
+    margin-bottom: 0;
+}
+
+.menu .hashTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.menu .hashTags a {
+    display: inline-block;
+    font-size: 14px;
+    padding: 4px 10px;
+    color: var(--primary-color);
+    background-color: rgba(0, 119, 182, 0.1);
+    border-radius: 20px;
+    transition: var(--transition);
+}
+
+.menu .hashTags a:hover {
+    background-color: rgba(0, 119, 182, 0.2);
+}
+
+.profileCard {
+    padding: 20px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+.profileCard h1 {
+    font-size: 22px;
+    margin: 16px 0 8px;
+    font-weight: 600;
+}
+
+.profileCard .photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: var(--shadow);
+}
+
+.profileCard .title {
+    margin: 8px auto;
+}
+
+.profileCard .title p {
+    color: var(--light-text);
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.profileCard .at {
+    text-align: center;
+    margin-top: 4px;
+}
+
+.profileCard .at p {
+    color: var(--light-text);
+    font-style: italic;
+}
+
+.profileCard .social {
+    margin: 16px 0;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+.profileCard .social span {
+    color: var(--primary-color);
+    font-size: 24px;
+    transition: var(--transition);
+}
+
+.profileCard .social span:hover {
+    color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+/* CONTENT -------------------------------- */
+div.content {
+    margin-left: 300px;
+    padding: 20px;
+    max-width: 1200px;
+}
+
+/* Responsivo -------------------------------- */
+@media screen and (max-width: 1007px) {
+    .menu {
+        width: 100%;
+        position: relative;
+        padding: 10px;
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    .profileCard {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .profileCard .photo {
+        width: 80px;
+        height: 80px;
+        margin-right: 15px;
+    }
+
+    .profileCard h1 {
+        font-size: 18px;
+        margin: 0;
+    }
+
+    .profileCard .title p {
+        font-size: 14px;
+    }
+
+    .profileCard .at {
+        display: none;
+    }
+
+    .profileCard .social {
+        margin: 8px 0;
+    }
+
+    .menu .links {
+        padding: 10px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .menu .links a {
+        padding: 6px 12px;
+        margin: 0 5px;
+    }
+
+    .welcome-message {
+        display: none;
+    }
+
+    .menu .hashTags {
+        justify-content: center;
+        margin-top: 5px;
+    }
+
+    div.content {
+        margin-left: 0;
+        padding: 15px;
+    }
+}

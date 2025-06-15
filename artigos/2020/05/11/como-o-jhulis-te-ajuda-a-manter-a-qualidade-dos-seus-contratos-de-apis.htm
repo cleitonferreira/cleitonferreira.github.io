@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163804196-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-163804196-1');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Como o Jhulis te ajuda a manter a qualidade dos seus contratos de APIs - Cleiton Ferreira</title>
+    <meta name="description" content="Jhulis é um projeto Open Source que valida APIs REST com relação às boas práticas de mercado.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7a312fc647.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" type="text/css" href="../../../../base.css">
+    <link rel="stylesheet" type="text/css" href="../../../../article.css">
+    <script type="text/javascript" src="../../../../menu.js"></script>
+    <script type="text/javascript" src="../../../../sidebar.js"></script>
+</head>
+<body>
+    <!-- Container para o menu lateral que será preenchido pelo sidebar.js -->
+    <div class="menu" id="mymenu"></div>
+    
+    <div class="content">
+        <div class="imageHeader" style="background-image: url('header.jpg')"></div>
+        <h1 id="como-o-jhulis-te-ajuda-a-manter-a-qualidade-dos-seus-contratos-de-apis">Como o Jhulis te ajuda a manter a qualidade dos seus contratos de APIs</h1>
+        <p>Linguagens para definição de contratos de REST APIs, como <a href="https://swagger.io/docs/specification/about">OpenAPI Specification (aka Swagger)</a> servem para gerar um documento que pode ser usado em gateways, middlewares, geração de código, entre outros e, principalmente, gerar documentação para os usuários.</p>
+        <p>Uma das formas de se iniciar um projeto com APIs é <a href="https://github.com/cleitonferreira/blog/blob/main/definindo-contratos-rest-api/guia.md">definindo este documento (contrato)</a> antes de se iniciar a programação da API. O ideal, inclusive, é que este contrato seja definido ainda na fase de concepção do projeto, dado que neste processo muitas dúvidas são levantadas e há maior proximidade com o negócio. É o que chamamos de <strong>contract-first</strong>.</p>
+        <p>No entanto, sabemos que nem toda API nasce com todo o seu escopo definido e muitas implementações acontecem através de projetos, principalmente em empresas e sistemas grandes. Ou seja, a cada projeto um pedaço do software vai sendo implementado.</p>
+        <p>Nesse processo, conhecer e aplicar <a href="https://github.com/cleitonferreira/blog/blob/main/design-rest-api/guia.md">boas práticas ao se definir o contrato</a> é essencial para se criar contratos que possam evoluir com o tempo sem quebrar a compatibilidade com os usuários anteriores.</p>
+        <p>As empresas têm criado times especialistas em APIs para orientar os desenvolvedores e fazer com que todo o ecossistema integrado via API tenha uma convergência à alguns padrões. Com isso, a curva de aprendizagem e automações possíveis melhora, fazendo com que cada vez mais, os consumidores de API gastem menos tempo para usar novas implementações nos sistemas.</p>
+        
+        <h2 id="gargalos-e-falhas-humanas">Gargalos e falhas humanas</h2>
+        <p>Dois grandes problemas acontecem em cima disso tudo aí em cima:</p>
+        <ul>
+            <li>Existem muitos <strong>detalhes / regrinhas</strong> para se fazer uma API Restfull (que adota as práticas básicas do REST) e aderente ao que a empresa considera como boas práticas. Muitos deles <strong>passam desapercebido</strong> pelo desenvolvedor inexperiente e até mesmo pelo especialista que orienta esses desenvolvedores. Minha experiência é de ver usuários reclamando de incoerência no tipo de detalhe que um especialista observava e que outro não.</li>
+            <li>O <strong>acesso aos especialistas pode virar um gargalo</strong> dependendo do tamanho da empresa e do time de especialistas. Aqui novamente surgem reclamações, principalmente quando a modelagem da API do projeto já chega nos especialistas com o projeto atrasado.</li>
+        </ul>
+        
+        <h2 id="como-o-jhulis-ajuda-a-solucionar-esses-problemas">Como o Jhulis ajuda a solucionar esses problemas</h2>
+        <p>A avaliação funcional das APIs, ou seja, análise da granularidade com que as informações são disponibilizadas, a aderência dos recursos disponibilizados na API ao modelo de domínio do negócio entre outros, ainda precisa ficar nas mãos de especialistas em negócio e REST APIs. Conhecer um pouco de <a href="https://github.com/cleitonferreira/blog/blob/main/definindo-contratos-rest-api/guia.md">Domain Driven Design</a> ajuda nesta hora. No entanto, a parte da análise que é apenas técnica pode ser automatizada. Por exemplo:</p>
+        <ul>
+            <li>uma propriedade do tipo string cujo valor de exemplo só tem números é uma provável candidata a se tornar uma propriedade do tipo number;</li>
+            <li>uma rota de API que não retorna nenhum caso de 2XX (sucesso) provavelmente foi por conta de esquecimento por parte o analista;</li>
+            <li>uma rota de API que não retorna nenhum caso de 4XX ou 5XX (erros) provavelmente foi por conta de esquecimento por parte o analista;</li>
+            <li>se a empresa define que o versionamento se dá no padrão '/v1/', por exemplo e o analista define no contrato a versão como 1.0.0, provavelmente, ele não conhece o padrão;</li>
+            <li>se não há descrições e exemplos, isso pode ser melhorado;</li>
+            <li>se existem rotas com recursos do tipo "/gravar-isso", "apagar-aquilo" etc., provavelmente o analista não está utilizando corretamente os verbos HTTP e nomeando corretamente os recursos.</li>
+        </ul>
+        
+        <p>O <a href="https://github.com/cleitonferreira/Jhulis">Jhulis</a> é um projeto Open Source, em dotNET Core, capaz de fazer mais de 30 sugestões de ajustes como essas, fazendo com que o contrato da API fique mais aderente às boas práticas sem depender de um especialista em APIs orientando neste tipo de detalhes.</p>
+        <p>Está na versão beta, mas já pode trazer mais eficiência na criação de bons contratos de API para o seu time de desenvolvimento.</p>
+        
+        <h2 id="proposta-de-uso-do-jhulis-com-devops">Proposta de uso do Jhulis com DEVOPS</h2>
+        <p>O Jhulis pode atuar em dois momentos: na etapa de criação do contrato de API e na etapa de se garantir a qualidade dele através da esteira de CI.</p>
+        <p><img src="https://raw.githubusercontent.com/cleitonferreira/artigos/master/jhulis/fluxo-integracao.png" alt="fluxo de uso do jhulis"></p>
+        <p>No ciclo de desenvolvimento, enquanto o contrato ainda se encontra na máquina/branch do desenvolvedor, o desenvolvedor pode usar o Jhulis fazer a <a href="https://github.com/cleitonferreira/Jhulis#post-em-validate">validação dos aspectos técnicos do contrato</a>. A cada sugestão de ajuste, o desenvolvedor tem oportunidade de corrigir ou, minimamente, refletir se aquilo se aplica à sua necessidade atual.</p>
+        <p>Após fazer os ajustes para passar por todas as <a href="https://github.com/cleitonferreira/Jhulis#regras">regras</a> ou adicionar <em><a href="https://github.com/cleitonferreira/Jhulis#supressions">supressions</a></em> indicando que alguma regra não se aplica a algum item do contrato, o desenvolvedor submete o contrato para que seja validado por analistas "especialistas em API".</p>
+        <p>Estes especialistas deverão validar se as <em>supressions</em> definidas pelo desenvolvedor fazem sentido ou se podem ajudá-lo a ajustar o contrato para contemplar todas as práticas. Também fazem a análise funcional da API: aderência ao negócio que ela expõe, uso de linguagem ubíqua, se a granularidade dos recursos nas APIs está coerente etc.</p>
+        <p>Os especialistas podem estar associados a alguma role do Git e a aprovação do merge request associada ao Ok de alguém com esta role.</p>
+        <p>O contrato e arquivo de supression pode estar em um pasta pré-definida no mesmo repositório do código fonte da API.</p>
+        <p>No processo de CI, a esteira, executando por exemplo em um Jenkins, Git CI, Git Actions etc. identifica o tipo de software, se for API, busca o contrato, o arquivo de supressions e revalida ele no Jhulis. Caso a validação falhe, significa que algum dos passos anteriores falhou ou não foi executado devidamente. Assim, em tempo, antes de algum primeiro deploy, o desenvolvedor tem oportunidade de fazer os ajustes necessários.</p>
+        
+        <h2 id="conclusao">Conclusão</h2>
+        <p>Quando o desenvolvedor usa o Jhulis no momento da criação do contrato, ele já é estimulado e entender e aprender as regras na prática, mesmo sem ter estudado o guia de práticas da empresa. Este mesmo desenvolvedor, chega no time de especialistas com um nível de maturidade maior e o custo pra isso é um serviço rodando em um servidor: o que é bem mais barato do que a hora de um analista.</p>
+        <p>O Jhulis integrado em uma esteira de CI, vira um <em>gate</em> de qualidade e impede que códigos evoluam sem ter passado por um fluxo de qualidade no que diz respeito ao contrato de API.</p>
+    </div>
+</body>
+</html>
