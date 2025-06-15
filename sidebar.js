@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     </p>
                 </div>
                 <div class="at">
-                    <p>Banco Itaú · Banco Safra · Digitra.com</p>
+                    <p>Não existe sucesso sem aprendizado. Dominar habilidades e desenvolver competências é pré-requisito para vencer!!!</p>
                 </div>
                 <div class="social">
                     <a href="https://www.linkedin.com/in/cleitonferreiraa/" target="_blank" aria-label="LinkedIn"><span><i class="fab fa-linkedin"></i></span></a>
