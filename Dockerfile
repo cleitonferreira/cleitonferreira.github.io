@@ -4,7 +4,7 @@ RUN apk add --no-cache build-base git nodejs npm
 
 WORKDIR /srv/jekyll
 
-COPY Gemfile jekyll-theme-chirpy.gemspec ./
+COPY Gemfile Gemfile.lock jekyll-theme-chirpy.gemspec ./
 RUN bundle install
 
 COPY package*.json ./
