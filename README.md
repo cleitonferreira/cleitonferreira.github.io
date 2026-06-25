@@ -1,44 +1,77 @@
-# Cleiton Ferreira - Site Pessoal
+<!-- markdownlint-disable-next-line -->
+<div align="center">
 
-Este é o repositório do meu site pessoal, com informações sobre minha experiência profissional e artigos sobre REST APIs e outros tópicos técnicos.
+  <!-- markdownlint-disable-next-line -->
+  # Chirpy Jekyll Theme
 
-## Estrutura do Site
+  A minimal, responsive, and feature-rich Jekyll theme for technical writing.
 
-- `index.htm`: Página principal do site
-- `artigos/`: Diretório contendo os artigos do site
-- `*.css`: Arquivos de estilo (base.css, grid.css, article.css)
-- `*.js`: Scripts JavaScript para funcionalidades do site
+  [![CI][badge-ci]][ci]&nbsp;
+  [![Codacy Badge][badge-codacy]][codacy]&nbsp;
+  [![GitHub license][badge-license]][license]&nbsp;
+  [![Gem Version][badge-gem]][gem]&nbsp;
+  [![Open in Dev Containers][badge-open-container]][open-container]
 
-## Sistema de Componentes
+  [**Live Demo** →][demo]
 
-O site utiliza um sistema simples de componentes baseado em JavaScript para reutilizar elementos comuns em todas as páginas.
+  [![Devices Mockup](https://chirpy-img.netlify.app/commons/devices-mockup.png)][demo]
 
-### Menu Lateral (Sidebar)
+</div>
 
-O arquivo `sidebar.js` contém o código para gerar dinamicamente o menu lateral com minhas informações profissionais. Este componente é usado em todas as páginas do site para manter a consistência e facilitar a manutenção.
+## Features
 
-#### Como usar o componente sidebar:
+- **Design & UX** - Responsive layout, Dark/Light modes, Localized UI language,
+  and Dark mode images.
+- **Content Management** - Pinned posts, Hierarchical categories, Trending tags,
+  Auto-generated Table of Contents, and Last modified dates.
+- **Rich Text Support** - Syntax highlighting, Mathematical expressions, Mermaid
+  diagrams & flowcharts, and Embedded media.
+- **Interactivity & Outreach** - Built-in search, Multiple comment systems, and
+  Atom feeds.
+- **System & Optimization** - PWA support, integrated Web analytics, and
+  advanced SEO performance.
 
-1. Adicione o link para o script `sidebar.js` no cabeçalho da página:
-   ```html
-   <script type="text/javascript" src="caminho/para/sidebar.js"></script>
-   ```
+## Documentation
 
-2. Adicione um container vazio com o ID "mymenu" no body da página:
-   ```html
-   <div class="menu" id="mymenu"></div>
-   ```
+To learn how to use, develop, and upgrade the project, please refer to the
+[Wiki][wiki].
 
-3. O script irá automaticamente preencher o container com o conteúdo do menu lateral.
+## Contributing
 
-### Paths Relativos
+Contributions (_pull requests_, _issues_, and _discussions_) are what make the
+open-source community such an amazing place to learn, inspire, and create. Any
+contributions you make are greatly appreciated.
+For details, please refer to our [Contributing Guidelines][contribute-guide].
 
-O componente sidebar detecta automaticamente a profundidade da página atual na estrutura de diretórios e calcula os caminhos relativos corretos para os recursos (como imagens e CSS).
+## Credits
 
-## Manutenção
+This project is built on the [Jekyll][jekyllrb] ecosystem and integrates a
+collection of [excellent libraries][lib]. Its avatar and favicon are sourced
+from [ClipartMAX][clipartmax].
 
-Para atualizar as informações exibidas no menu lateral (como cargo, experiência, etc.), basta editar o arquivo `sidebar.js`.
+Furthermore, thanks to everyone who contributed to the development of this project!
 
-## Licença
+[![all-contributors][contributors-avatar]][contributors]
 
-Todos os direitos reservados. O conteúdo deste site (textos, imagens e código) não pode ser reproduzido sem autorização. 
+## License
+
+This project is licensed under the [MIT License][license].
+
+[badge-ci]: https://img.shields.io/github/actions/workflow/status/cotes2020/jekyll-theme-chirpy/ci.yml?logo=github
+[badge-codacy]: https://img.shields.io/codacy/grade/4e556876a3c54d5e8f2d2857c4f43894?logo=codacy
+[badge-license]: https://img.shields.io/github/license/cotes2020/jekyll-theme-chirpy?color=goldenrod
+[badge-gem]: https://img.shields.io/gem/v/jekyll-theme-chirpy?&logo=RubyGems&logoColor=ghostwhite&label=gem&color=orange
+[badge-open-container]: https://img.shields.io/badge/Dev_Containers-Open-deepskyblue?logo=linuxcontainers
+[gem]: https://rubygems.org/gems/jekyll-theme-chirpy
+[ci]: https://github.com/cotes2020/jekyll-theme-chirpy/actions/workflows/ci.yml?query=event%3Apush+branch%3Amaster
+[codacy]: https://app.codacy.com/gh/cotes2020/jekyll-theme-chirpy/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade
+[license]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/LICENSE
+[open-container]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/cotes2020/jekyll-theme-chirpy
+[jekyllrb]: https://jekyllrb.com/
+[clipartmax]: https://www.clipartmax.com/middle/m2i8b1m2K9Z5m2K9_ant-clipart-childrens-ant-cute/
+[demo]: https://cotes2020.github.io/chirpy-demo/
+[wiki]: https://github.com/cotes2020/jekyll-theme-chirpy/wiki
+[contribute-guide]: https://github.com/cotes2020/jekyll-theme-chirpy/blob/master/docs/CONTRIBUTING.md
+[contributors]: https://github.com/cotes2020/jekyll-theme-chirpy/graphs/contributors
+[contributors-avatar]: https://contrib.rocks/image?repo=cotes2020/jekyll-theme-chirpy&columns=16&max=112
+[lib]: https://github.com/cotes2020/chirpy-static-assets
