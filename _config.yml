@@ -16,7 +16,7 @@ timezone: America/Sao_Paulo
 
 title: Cleiton Ferreira # the main title
 
-tagline: Engenharia de Software | Design System | Arquitetura de Software | Java # it will display as the subtitle
+tagline: Engenharia de Software | Design System | Arquitetura de Software | Java | Python # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
   Software Engineer | Back-End | Java | Python | Spring Boot | Microservices | AWS APIs REST | Engenharia de Software Baseada em Buscas
