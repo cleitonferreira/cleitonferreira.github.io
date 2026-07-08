@@ -10,7 +10,7 @@ order: 4
 
 - ✉️ cleitonferreiraa@hotmail.com
 - 🔗 [LinkedIn](https://www.linkedin.com/in/cleitonferreiraa)
-- 📄 [Currículo Lattes](http://lattes.cnpq.br/9733112625023501)
+- 📄 [Currículo Lattes](https://lattes.cnpq.br/9733112625023501)
 
 ## Resumo
 
