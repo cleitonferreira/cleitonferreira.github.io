@@ -10,7 +10,7 @@ categories: [Java, Spring Boot]
 tags: [spring boot, java, jackson, hibernate, spring security, migração]
 ---
 
-## 1. Resumo executivo (TL;DR técnico)
+## 1. Resumo
 
 O Spring Boot 4.0 (GA em novembro de 2025) é a release mais disruptiva desde a migração `javax` → `jakarta` do Boot 3. O suporte OSS do Spring Boot 3.5 terminou em **30 de junho de 2026**: a partir dessa data, a linha 3.x deixa de receber patches de segurança da comunidade. Se seus serviços ainda estão em 3.x, você tem um problema de exposição a CVEs, não apenas uma dívida técnica.
 
